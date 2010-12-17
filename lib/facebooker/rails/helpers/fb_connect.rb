@@ -56,7 +56,7 @@ module Facebooker
                     #{additions}
                   });
                 } catch(error) {
-                  alert('got it!');
+                  #{options[:error]};
                 }
                 
               });
