@@ -50,10 +50,15 @@ module Facebooker
                when :mootools then "window.addEvent('domready',"
                else "Event.observe(window,'load',"
                end} function() {
-                FB_RequireFeatures(#{required_features.to_json}, function() {
-                  #{init_string}
-                  #{additions}
-                });
+                try {
+                  FB_RequireFeatures(#{required_features.to_json}, function() {
+                    #{init_string}
+                    #{additions}
+                  });
+                } catch(error) {
+                  alert('got it!');
+                }
+                
               });
               FBML
           end
